@@ -2,21 +2,55 @@ body {
     margin: 0px;
 }
 
+.mode {
+    position: absolute;
+    z-index: 100;
+    top: 2px;
+    right: 2px;
+    padding: 5px;
+    background: #676767;
+    color: #d4d4d4;;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.preview .canvas {
+    border: 3px 0 3px 0 solid transparent;
+    outline: 2px solid gray;
+}
+
+.preview .row {
+    border: 3px 0 0 3px solid transparent;
+    outline: 2px solid gray;
+}
+
+.preview .column {
+    border: 3px 0 0 3px solid transparent;
+    outline: 2px solid gray;
+}
+
+.preview .text {
+    border: 3px 0 0 3px solid transparent;
+    outline: 2px solid gray;
+}
+
+.preview .title {
+    border: 3px 0 0 3px solid transparent;
+    outline: 2px solid gray;
+}
+
 .canvas {
     width: 100%;
-    border: 1px solid blue;
     box-sizing: border-box;
 }
 
 .row {
     width: 100%;
-    border: 1px solid green;
     box-sizing: border-box;
 }
 
 .column {
     min-height: 50px;
-    border: 1px solid red;
     box-sizing: border-box;
     display:inline-block;
     vertical-align: top;
@@ -24,12 +58,10 @@ body {
 
 .text {
     font-size: 14px;
-    border: 1px solid yellow;
     box-sizing: border-box;
 }
 
 .title {
     font-size: 24px;
-    border: 1px solid grey;
     box-sizing: border-box;
 }

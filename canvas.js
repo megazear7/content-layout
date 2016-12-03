@@ -1,7 +1,8 @@
-var Canvas = (function() {
+var Canvas = (function($container) {
 
     // The Canvas can only have rows as children.
     this.rows = [];
+    this.$container = $container;
 
     this.addRow = function() {
         var newRow = new Row(this);
@@ -18,14 +19,28 @@ var Canvas = (function() {
         console.log(ps);
     };
 
-    this.display = function($container) {
+    this.display = function() {
         var $canvas = $("<div class='canvas'></div>");
-        $container.append($canvas);
+        this.$container.append($canvas);
 
         $.each(this.rows, function(index, row) {
             row.display($canvas);
         });
     };
+
+    var self = this;
+
+    this.$container.find(".mode").click(function(e) {
+        if (self.$container.hasClass("preview")) {
+            self.$container.addClass("edit");
+            self.$container.removeClass("preview");
+            $(e.target).text("Edit");
+        } else {
+            self.$container.addClass("preview");
+            self.$container.removeClass("edit");
+            $(e.target).text("Preview");
+        }
+    });
 
 });
 
