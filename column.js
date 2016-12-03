@@ -79,6 +79,13 @@ var Column = (function(parentRow, width) {
                 row.display($column);
             });
         }
+
+        var $edit = $("<div class='edit-bar'>Edit Column</div>");
+        $column.append($edit);
+
+        $edit.click(function() {
+            console.log("hello");
+        });
     };
 
 });

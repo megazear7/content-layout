@@ -34,11 +34,11 @@ var Canvas = (function($container) {
         if (self.$container.hasClass("preview")) {
             self.$container.addClass("edit");
             self.$container.removeClass("preview");
-            $(e.target).text("Edit");
+            $(e.target).text("Switch to Preview Mode");
         } else {
             self.$container.addClass("preview");
             self.$container.removeClass("edit");
-            $(e.target).text("Preview");
+            $(e.target).text("Switch to Edit Mode");
         }
     });
 

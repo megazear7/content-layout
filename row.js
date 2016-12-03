@@ -52,6 +52,13 @@ var Row = (function(parentNode) {
         $.each(this.columns, function(index, column) {
             column.display($row);
         });
+
+        var $edit = $("<div class='edit-bar'>Edit Row</div>");
+        $row.append($edit);
+
+        $edit.click(function() {
+            console.log("hello");
+        });
     };
 
 });
