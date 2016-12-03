@@ -1,5 +1,6 @@
 var Text = (function(text) {
 
+    this.nodeType = "content";
     this.text = text;
 
     // For testing purposes
@@ -9,8 +10,6 @@ var Text = (function(text) {
 
 });
 
-// JS version of inheritance
-Text.prototype = Content;
-
+// Example usage
 var myText = new Text("Hello, this could be a paragraph or caption or something.");
 myText.printText();

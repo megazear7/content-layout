@@ -1,5 +1,6 @@
 var Column = (function(width) {
 
+    this.nodeType = "container";
     this.width = 50;
 
     // For testing purposes only
@@ -8,9 +9,6 @@ var Column = (function(width) {
     };
 
 });
-
-// JS version of inheritance
-Text.prototype = Container;
 
 // Example Usage
 var col50 = new Column(50);

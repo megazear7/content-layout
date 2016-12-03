@@ -1,5 +1,7 @@
 var Row = (function() {
 
+    this.nodeType = "container";
+
     // Do rows have any configuration?
     // For testing purposes
     this.hello = function() {
@@ -8,8 +10,6 @@ var Row = (function() {
 
 });
 
-// JS version of inheritance
-Text.prototype = Container;
-
+// Example Usage
 var myRow = new Row();
 myRow.hello();

@@ -1,18 +1,16 @@
-var Title = (function(titleText) {
+var Title = (function(title) {
 
-    this.titleText = titleText;
+    this.nodeType = "content";
+    this.title = title;
 
     // For testing purposes
-    this.printTitleText = function() {
-        console.log(this.titleText);
+    this.printTitle = function() {
+        console.log(this.title);
     };
 
 });
 
-// JS version of inheritance
-Text.prototype = Content;
-
 // Example usage
 var myTitle = new Title("My Title");
-myTitle.printTitleText();
+myTitle.printTitle();
 
