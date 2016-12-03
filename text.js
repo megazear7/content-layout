@@ -8,4 +8,9 @@ var Text = (function(column, text) {
         return ps + "\n" + indent + text;
     };
 
+    this.display = function($column) {
+        var $text = $("<div class='text'>"+this.text+"</div>");
+        $column.append($text);
+    };
+
 });

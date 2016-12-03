@@ -8,5 +8,10 @@ var Title = (function(column, title) {
         return ps + "\n" + indent + title;
     };
 
+    this.display = function($column) {
+        var $title = $("<div class='title'>"+this.title+"</div>");
+        $column.append($title);
+    };
+
 });
 

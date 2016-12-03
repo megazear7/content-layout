@@ -68,5 +68,18 @@ var Column = (function(parentRow, width) {
         return ps;
     };
 
+    this.display = function($row) {
+        var $column = $("<div class='column' style='width:" + this.width + "%'></div>")
+        $row.append($column);
+
+        if (this.content) {
+            this.content.display($column);
+        } else {
+            $.each(this.rows, function(index, row) {
+                row.display($column);
+            });
+        }
+    };
+
 });
 

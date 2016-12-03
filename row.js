@@ -45,5 +45,14 @@ var Row = (function(parentNode) {
         return ps;
     };
 
+    this.display = function($parentContainer) {
+        var $row = $("<div class='row'></div>");
+        $parentContainer.append($row);
+
+        $.each(this.columns, function(index, column) {
+            column.display($row);
+        });
+    };
+
 });
 
