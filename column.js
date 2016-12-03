@@ -1,11 +1,11 @@
-var Column = (function(row, width) {
+var Column = (function(parentRow, width) {
 
     // The column can have 0 or more rows, or content.
     this.rows = [];
-    this.parentRow = row;
+    this.parentRow = parentRow;
     this.content = null;
     this.nodeType = "container";
-    this.width = 50;
+    this.width = width;
 
     this.siblings = function() {
         return this.parentRow.columns;
@@ -17,14 +17,33 @@ var Column = (function(row, width) {
         // directly manipulate the width property on this object.
     };
 
-    this.setContent = function(content) {
-        // If there is already content or any rows, do nothing.
-        // otherwise, set this.content = content
+    this.addTitle = function(title) {
+        if (this.rows.length === 0) {
+            this.content = new Title(this, title);
+            return true;
+        } else {
+            return false;
+        }
     };
 
-    this.addRow = function(row) {
-        // If there is already content, do nothing
-        // otherwise do this.rows.push(row);
+    this.addText = function(text) {
+        if (this.rows.length === 0) {
+            this.content = new Text(this, text);
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    this.addRow = function() {
+        var newRow = false;
+
+        if (! this.content) {
+            newRow = new Row(this);
+            this.rows.push(newRow);
+        }
+
+        return newRow;
     };
 
     this.clearContent = function() {
@@ -36,7 +55,17 @@ var Column = (function(row, width) {
     }
 
     this.print = function(ps, indent) {
-        // TODO
+        ps = ps + "\n" + indent + this.width;
+
+        if (this.content) {
+            ps = this.content.print(ps, indent + "  ");
+        } else {
+            $.each(this.rows, function(index, row) {
+                ps = row.print(ps, indent + "  ");
+            });
+        }
+
+        return ps;
     };
 
 });

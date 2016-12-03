@@ -15,6 +15,7 @@ var Canvas = (function() {
     this.addRow = function() {
         var newRow = new Row(this);
         this.rows.push(newRow);
+        return newRow;
     };
 
 });
