@@ -11,6 +11,13 @@ var Title = (function(column, title) {
     this.display = function($column) {
         var $title = $("<div class='title'>"+this.title+"</div>");
         $column.append($title);
+
+        var $edit = $("<div class='edit-bar'>Edit Title</div>");
+        $title.append($edit);
+
+        $edit.click(function() {
+            console.log("hello");
+        });
     };
 
 });

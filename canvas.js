@@ -26,6 +26,13 @@ var Canvas = (function($container) {
         $.each(this.rows, function(index, row) {
             row.display($canvas);
         });
+
+        var $edit = $("<div class='edit-bar'>Edit Canvas</div>");
+        $canvas.append($edit);
+
+        $edit.click(function() {
+            console.log("hello");
+        });
     };
 
     var self = this;

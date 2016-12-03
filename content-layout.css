@@ -36,6 +36,7 @@ div {
     outline-offset: -2px;
     outline: 2px solid #d4d4d4;
     cursor: pointer;
+    font-size: 13px;
 }
 
 .edit-bar:hover {

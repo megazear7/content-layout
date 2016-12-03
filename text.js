@@ -11,6 +11,13 @@ var Text = (function(column, text) {
     this.display = function($column) {
         var $text = $("<div class='text'>"+this.text+"</div>");
         $column.append($text);
+
+        var $edit = $("<div class='edit-bar'>Edit Text</div>");
+        $text.append($edit);
+
+        $edit.click(function() {
+            console.log("hello");
+        });
     };
 
 });
