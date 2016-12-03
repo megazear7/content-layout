@@ -1,7 +1,4 @@
-1. Download the files.
-1. Open up the content-layout.html file.
-1. You'll need to be connected to the internet for jquery to get loaded.
-1. Inspect the browser and go to the javascript console.
-1. View the output.
-1. Look at the main.js file to see an example of how it works.
-
+#. Download the files.
+#. Open up the content-layout.html file in a browser.
+#. You'll need to be connected to the internet for jquery to get loaded.
+#. You will see the layout appear on the screen as created by main.js
