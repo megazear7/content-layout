@@ -131,6 +131,17 @@ var Column = (function(parentRow, width) {
                 self.addRow();
                 Canvas.display();
             });
+
+            if (self.rows.length > 0) {
+                var $remove = $("<span class='edit-option'>Remove Rows</span>");
+                $editBar.append($remove);
+
+                $remove.click(function(e) {
+                    e.stopPropagation();
+                    self.rows = [];
+                    Canvas.display();
+                });
+            }
         }
     };
 
