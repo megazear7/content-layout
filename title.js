@@ -28,7 +28,8 @@ var Title = (function(column, title) {
         var $editDialog = $("<span class='edit-option'>Edit</span>");
         $editBar.append($editDialog);
 
-        $editDialog.click(function() {
+        $editDialog.click(function(e) {
+            e.stopPropagation();
             var $title = self.editorDisplay();
             Dialog.insert($title);
             Dialog.open();

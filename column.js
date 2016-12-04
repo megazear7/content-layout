@@ -96,20 +96,42 @@ var Column = (function(parentRow, width) {
         var $editDialog = $("<span class='edit-option'>Edit</span>");
         $editBar.append($editDialog);
 
-        $editDialog.click(function() {
+        $editDialog.click(function(e) {
+            e.stopPropagation();
             var $column = self.editorDisplay(1);
             Dialog.insert($column);
             Dialog.open();
         });
 
-        var $addRow = $("<span class='edit-option'>Add Row</span>");
-        $editBar.append($addRow);
+        if (this.content) {
+            var $editContent = $("<span class='edit-option'>Edit Content</span>");
+            $editBar.append($editContent);
 
-        $addRow.click(function(e) {
-            e.stopPropagation();
-            self.addRow();
-            Canvas.display();
-        });
+            $editContent.click(function(e) {
+                e.stopPropagation();
+                var $content = self.content.editorDisplay();
+                Dialog.insert($content);
+                Dialog.open();
+            });
+
+            var $replace = $("<span class='edit-option'>Remove Content</span>");
+            $editBar.append($replace);
+
+            $replace.click(function(e) {
+                e.stopPropagation();
+                self.content = false;
+                Canvas.display();
+            });
+        } else {
+            var $addRow = $("<span class='edit-option'>Add Row</span>");
+            $editBar.append($addRow);
+
+            $addRow.click(function(e) {
+                e.stopPropagation();
+                self.addRow();
+                Canvas.display();
+            });
+        }
     };
 
     this.editorDisplay = function(depth, $row) {

@@ -69,7 +69,8 @@ var Row = (function(parentNode) {
         var $editDialog = $("<span class='edit-option'>Edit</span>");
         $editBar.append($editDialog);
 
-        $editDialog.click(function() {
+        $editDialog.click(function(e) {
+            e.stopPropagation();
             var $row = self.editorDisplay(1);
             Dialog.insert($row);
             Dialog.open();

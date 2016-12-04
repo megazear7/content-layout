@@ -28,7 +28,8 @@ var Text = (function(column, text) {
         var $editDialog = $("<span class='edit-option'>Edit</span>");
         $editBar.append($editDialog);
 
-        $editDialog.click(function() {
+        $editDialog.click(function(e) {
+            e.stopPropagation();
             var $text = self.editorDisplay();
             Dialog.insert($text);
             Dialog.open();
