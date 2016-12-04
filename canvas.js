@@ -33,19 +33,22 @@ var Canvas = (function($container) {
         $edit.click(function() {
             var $editor = $(".editor");
             $editor.addClass("show");
-            self.displayEditor(1, $editor);
+            var $canvas = self.editorDisplay(1, $editor);
+            Dialog.container().append($canvas);
+            Dialog.open();
         });
     };
 
-    this.displayEditor = function(depth, $editor) {
+    this.editorDisplay = function(depth, $editor) {
         var $canvas = $("<div class='canvas'></div>");
-        $editor.append($canvas);
 
         if (depth > 0) {
             $.each(this.rows, function(index, row) {
-                row.displayEditor(depth-1, $canvas);
+                row.editorDisplay(depth-1, $canvas);
             });
         }
+
+        return $canvas;
     };
 
     this.$container.find(".mode").click(function(e) {

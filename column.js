@@ -88,16 +88,16 @@ var Column = (function(parentRow, width) {
         });
     };
 
-    this.displayEditor = function(depth, $row) {
+    this.editorDisplay = function(depth, $row) {
         var $column = $("<div class='column' style='width:" + this.width + "%'></div>")
         $row.append($column);
 
         if (depth > 0) {
             if (this.content) {
-                this.content.displayEditor($column);
+                this.content.editorDisplay($column);
             } else {
                 $.each(this.rows, function(index, row) {
-                    row.displayEditor(depth-1, $column);
+                    row.editorDisplay(depth-1, $column);
                 });
             }
         }

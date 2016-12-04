@@ -61,13 +61,13 @@ var Row = (function(parentNode) {
         });
     };
 
-    this.displayEditor = function(depth, $parentContainer) {
+    this.editorDisplay = function(depth, $parentContainer) {
         var $row = $("<div class='row'></div>");
         $parentContainer.append($row);
 
         if (depth > 0) {
             $.each(this.columns, function(index, column) {
-                column.displayEditor(depth-1, $row);
+                column.editorDisplay(depth-1, $row);
             });
         }
     };
