@@ -65,6 +65,26 @@ div {
     color: black;
 }
 
+.edit-label {
+    margin-left: 10px;
+}
+
+.dialog-label {
+    padding: 10px;
+    font-size: 20px;
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 200px;
+}
+
+.dialog-input {
+    padding: 10px;
+    font-size: 20px;
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 200px;
+}
+
 .editor {
     display: none;
     z-index: 101;

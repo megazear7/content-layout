@@ -1,10 +1,7 @@
 var Dialog = (function() {
     $(document).ready(function() {
-        var $editor = $(".editor");
-        var $exit = $(".editor .exit");
-
-        $exit.click(function() {
-            $editor.removeClass("show");
+        $(".editor .exit").click(function() {
+            $(".editor").removeClass("show");
         });
     });
 
@@ -18,6 +15,19 @@ var Dialog = (function() {
         insert: function($dom) {
             $(".editor .content").empty();
             $(".editor .content").append($dom);
+        },
+        close: function(callback) {
+            $(".editor .exit").unbind();
+            $(".editor .exit").click(function() {
+                $(".editor").removeClass("show");
+            });
+            $(".editor .exit").click(function() {
+                callback()
+                $(".editor .exit").unbind();
+                $(".editor .exit").click(function() {
+                    $(".editor").removeClass("show");
+                });
+            });
         }
     }
 })();

@@ -76,17 +76,29 @@ var Row = (function(parentNode) {
             Dialog.open();
         });
 
-        var $addColumn = $("<span class='edit-option'>Add Column</span>");
-        $editBar.append($addColumn);
+        if (self.totalWidth() < 100) {
+            var $addColumn = $("<span class='edit-option'>Add Column</span>");
+            $editBar.append($addColumn);
 
-        $addColumn.click(function(e) {
-            e.stopPropagation();
-            console.log("hello");
-            /*
-            self.addColumn();
-            Canvas.display();
-            */
-        });
+            $addColumn.click(function(e) {
+                e.stopPropagation();
+                var $container = $("<div></div>");
+                var $label = $("<div class='dialog-label'>Enter column width as a percentage and then exit.</div>");
+                var $input = $("<input class='dialog-input' type='number' min='1' max='100'></input>");
+                $container.append($label);
+                $container.append($input);
+                Dialog.insert($container);
+                Dialog.open();
+
+                Dialog.close(function() {
+                    self.addColumn(parseInt($input.val()));
+                    Canvas.display();
+                });
+            });
+        } else {
+            var $columnAtMax = $("<span class='edit-label'>Width at max.</span>");
+            $editBar.append($columnAtMax);
+        }
     };
 
     this.editorDisplay = function(depth, $parentContainer) {
