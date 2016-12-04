@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    var myCanvas = new Canvas($(document).find(".container"));
+    window.Canvas = new Canvas($(document).find(".container"));
 
-    var row1 = myCanvas.addRow();
-    //var row2 = myCanvas.addRow();
-    //var row3 = myCanvas.addRow();
+    var row1 = Canvas.addRow();
+    //var row2 = Canvas.addRow();
+    //var row3 = Canvas.addRow();
 
     var row1Col1 = row1.addColumn(50);
     var row1Col2 = row1.addColumn(25);
@@ -19,9 +19,9 @@ $(document).ready(function() {
     row1Col1Row1Col1.addText("Hello, I am some text.");
 
     console.log("-----------------");
-    myCanvas.print();
+    Canvas.print();
     console.log("-----------------");
-    console.log(myCanvas);
+    console.log(Canvas);
 
-    myCanvas.display();
+    Canvas.display();
 });

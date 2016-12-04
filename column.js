@@ -81,13 +81,34 @@ var Column = (function(parentRow, width) {
             });
         }
 
-        var $edit = $("<div class='edit-bar'>Edit Column</div>");
-        $column.append($edit);
+        var $editBar = $("<div class='edit-bar'></div>");
+        $column.append($editBar);
 
-        $edit.click(function() {
-            var $row = self.editorDisplay(1);
-            Dialog.insert($row);
+        $editBar.click(function() {
+            var $column = self.editorDisplay(1);
+            Dialog.insert($column);
             Dialog.open();
+        });
+
+        var $columnText = $("<span>Column:</span>");
+        $editBar.append($columnText);
+
+        var $editDialog = $("<span class='edit-option'>Edit</span>");
+        $editBar.append($editDialog);
+
+        $editDialog.click(function() {
+            var $column = self.editorDisplay(1);
+            Dialog.insert($column);
+            Dialog.open();
+        });
+
+        var $addRow = $("<span class='edit-option'>Add Row</span>");
+        $editBar.append($addRow);
+
+        $addRow.click(function(e) {
+            e.stopPropagation();
+            self.addRow();
+            Canvas.display();
         });
     };
 
