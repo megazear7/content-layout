@@ -1,4 +1,5 @@
 var Row = (function(parentNode) {
+    var self = this;
 
     // This could be a canvas or a column.
     this.parentNode = parentNode;
@@ -57,18 +58,26 @@ var Row = (function(parentNode) {
         $row.append($edit);
 
         $edit.click(function() {
-            console.log("hello");
+            var $row = self.editorDisplay(1);
+            Dialog.insert($row);
+            Dialog.open();
         });
     };
 
     this.editorDisplay = function(depth, $parentContainer) {
         var $row = $("<div class='row'></div>");
-        $parentContainer.append($row);
 
         if (depth > 0) {
             $.each(this.columns, function(index, column) {
                 column.editorDisplay(depth-1, $row);
             });
+        }
+
+        if (typeof $parentContainer !== "undefined") {
+            $parentContainer.append($row);
+            return $parentContainer;
+        } else {
+            return $row;
         }
     };
 });

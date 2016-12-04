@@ -1,6 +1,7 @@
 var Canvas = (function($container) {
-
     var self = this;
+
+    // The canvas can only have rows
     this.rows = [];
     this.$container = $container;
 
@@ -31,15 +32,13 @@ var Canvas = (function($container) {
         $canvas.append($edit);
 
         $edit.click(function() {
-            var $editor = $(".editor");
-            $editor.addClass("show");
-            var $canvas = self.editorDisplay(1, $editor);
-            Dialog.container().append($canvas);
+            var $canvas = self.editorDisplay(1);
+            Dialog.insert($canvas);
             Dialog.open();
         });
     };
 
-    this.editorDisplay = function(depth, $editor) {
+    this.editorDisplay = function(depth) {
         var $canvas = $("<div class='canvas'></div>");
 
         if (depth > 0) {

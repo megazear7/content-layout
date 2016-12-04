@@ -125,10 +125,10 @@ div {
     vertical-align: top;
 }
 
-.text {
+.text .content {
     font-size: 14px;
 }
 
-.title {
+.title .content {
     font-size: 24px;
 }

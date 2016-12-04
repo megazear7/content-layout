@@ -1,4 +1,5 @@
 var Column = (function(parentRow, width) {
+    var self = this;
 
     // The column can have 0 or more rows, or content.
     this.rows = [];
@@ -84,13 +85,19 @@ var Column = (function(parentRow, width) {
         $column.append($edit);
 
         $edit.click(function() {
-            console.log("hello");
+            var $row = self.editorDisplay(1);
+            Dialog.insert($row);
+            Dialog.open();
         });
     };
 
     this.editorDisplay = function(depth, $row) {
-        var $column = $("<div class='column' style='width:" + this.width + "%'></div>")
-        $row.append($column);
+        var $column;
+        if (typeof $row !== "undefined") {
+            $column = $("<div class='column' style='width:" + this.width + "%'></div>")
+        } else {
+            $column = $("<div class='column' style='width:100%'></div>")
+        }
 
         if (depth > 0) {
             if (this.content) {
@@ -100,6 +107,13 @@ var Column = (function(parentRow, width) {
                     row.editorDisplay(depth-1, $column);
                 });
             }
+        }
+
+        if (typeof $row !== "undefined") {
+            $row.append($row);
+            return $row;
+        } else {
+            return $column;
         }
     };
 

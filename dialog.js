@@ -15,8 +15,9 @@ var Dialog = (function() {
         close: function() {
             $(".editor").removeClass("show");
         },
-        container: function() {
-            return $(".editor");
+        insert: function($dom) {
+            $(".editor .content").empty();
+            $(".editor .content").append($dom);
         }
     }
 })();
