@@ -39,15 +39,64 @@ div {
     font-size: 13px;
 }
 
+.editor {
+    display: none;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 100px;
+    min-height: 300px;
+    border: 1px solid #797979;
+    padding: 2px;
+    background: white;
+    box-shadow: 0px 0px 1000px 50px #000;
+}
+
+.editor.show {
+    display: block;
+}
+
 .edit-bar:hover {
     background-color: #d4d4d4;
 }
 
 .edit .canvas, .edit .row, .edit .column, .edit .text, .edit .title {
     /* border: 3px 0 3px 0 solid transparent; */
-    min-height: 50px;
     outline-offset: -2px;
     outline: 2px solid gray;
+}
+
+.editor .canvas, .editor .row, .editor .column, .editor .text, .editor .title {
+    /* border: 3px 0 3px 0 solid transparent; */
+    min-height: 50px;
+    padding: 4px;
+    outline-offset: -2px;
+    outline: 2px solid gray;
+}
+
+.editor .canvas:before {
+    content: "Canvas";
+    display: block;
+}
+
+.editor .row:before {
+    content: "Row";
+    display: block;
+}
+
+.editor .column:before {
+    content: "Column";
+    display: block;
+}
+
+.editor .text:before {
+    content: "Text";
+    display: block;
+}
+
+.editor .title:before {
+    content: "Title";
+    display: block;
 }
 
 .canvas {

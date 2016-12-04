@@ -31,8 +31,21 @@ var Canvas = (function($container) {
         $canvas.append($edit);
 
         $edit.click(function() {
-            console.log("hello");
+            var $editor = $(".editor");
+            $editor.addClass("show");
+            self.displayDepth(1, $editor);
         });
+    };
+
+    this.displayDepth = function(depth, $editor) {
+        var $canvas = $("<div class='canvas'></div>");
+        $editor.append($canvas);
+
+        if (depth > 0) {
+            $.each(this.rows, function(index, row) {
+                row.displayDepth(depth-1, $canvas);
+            });
+        }
     };
 
     var self = this;

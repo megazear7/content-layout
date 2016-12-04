@@ -20,4 +20,9 @@ var Text = (function(column, text) {
         });
     };
 
+    this.displayDepth = function($column) {
+        var $text = $("<div class='text'>"+this.text+"</div>");
+        $column.append($text);
+    };
+
 });
