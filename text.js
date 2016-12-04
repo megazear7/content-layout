@@ -13,12 +13,24 @@ var Text = (function(column, text) {
         var $text = $("<div class='text'><div class='content'>"+this.text+"</div></div>");
         $column.append($text);
 
-        var $edit = $("<div class='edit-bar'>Edit Text</div>");
-        $text.append($edit);
+        var $editBar = $("<div class='edit-bar'></div>");
+        $text.append($editBar);
 
-        $edit.click(function() {
-            var $row = self.editorDisplay();
-            Dialog.insert($row);
+        $editBar.click(function() {
+            var $text = self.editorDisplay();
+            Dialog.insert($text);
+            Dialog.open();
+        });
+
+        var $textText = $("<span>Text:</span>");
+        $editBar.append($textText);
+
+        var $editDialog = $("<span class='edit-option'>Edit</span>");
+        $editBar.append($editDialog);
+
+        $editDialog.click(function() {
+            var $text = self.editorDisplay();
+            Dialog.insert($text);
             Dialog.open();
         });
     };

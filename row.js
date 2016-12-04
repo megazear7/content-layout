@@ -54,13 +54,37 @@ var Row = (function(parentNode) {
             column.display($row);
         });
 
-        var $edit = $("<div class='edit-bar'>Edit Row</div>");
-        $row.append($edit);
+        var $editBar = $("<div class='edit-bar'></div>");
+        $row.append($editBar);
 
-        $edit.click(function() {
+        $editBar.click(function() {
             var $row = self.editorDisplay(1);
             Dialog.insert($row);
             Dialog.open();
+        });
+
+        var $rowText = $("<span>Row:</span>");
+        $editBar.append($rowText);
+
+        var $editDialog = $("<span class='edit-option'>Edit</span>");
+        $editBar.append($editDialog);
+
+        $editDialog.click(function() {
+            var $row = self.editorDisplay(1);
+            Dialog.insert($row);
+            Dialog.open();
+        });
+
+        var $addColumn = $("<span class='edit-option'>Add Column</span>");
+        $editBar.append($addColumn);
+
+        $addColumn.click(function(e) {
+            e.stopPropagation();
+            console.log("hello");
+            /*
+            self.addColumn();
+            Canvas.display();
+            */
         });
     };
 

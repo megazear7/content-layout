@@ -13,12 +13,24 @@ var Title = (function(column, title) {
         var $title = $("<div class='title'><div class='content'>"+this.title+"</div></div>");
         $column.append($title);
 
-        var $edit = $("<div class='edit-bar'>Edit Title</div>");
-        $title.append($edit);
+        var $editBar = $("<div class='edit-bar'></div>");
+        $title.append($editBar);
 
-        $edit.click(function() {
-            var $row = self.editorDisplay();
-            Dialog.insert($row);
+        $editBar.click(function() {
+            var $title = self.editorDisplay();
+            Dialog.insert($title);
+            Dialog.open();
+        });
+
+        var $titleText = $("<span>Title:</span>");
+        $editBar.append($titleText);
+
+        var $editDialog = $("<span class='edit-option'>Edit</span>");
+        $editBar.append($editDialog);
+
+        $editDialog.click(function() {
+            var $title = self.editorDisplay();
+            Dialog.insert($title);
             Dialog.open();
         });
     };
