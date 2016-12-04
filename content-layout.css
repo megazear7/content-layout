@@ -26,7 +26,6 @@ div {
 
 .exit {
     position: absolute;
-    z-index: 100;
     right: 5px;
     bottom: 5px;
     padding: 5px;
@@ -43,16 +42,32 @@ div {
 .edit-bar {
     width: 100%;
     padding: 5px;
+    margin-top: 20px;
     text-align: center;
     background-color: #f1f1f1;
     outline-offset: -2px;
     outline: 2px solid #d4d4d4;
     cursor: pointer;
     font-size: 13px;
+    color: gray;
+}
+
+.edit-bar:hover {
+    background-color: #d4d4d4;
+}
+
+.edit-option {
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.edit-option:hover {
+    color: black;
 }
 
 .editor {
     display: none;
+    z-index: 101;
     position: absolute;
     width: 80%;
     left: 10%;
@@ -68,12 +83,8 @@ div {
     display: block;
 }
 
-.edit-bar:hover {
-    background-color: #d4d4d4;
-}
-
 .edit .canvas, .edit .row, .edit .column, .edit .text, .edit .title {
-    /* border: 3px 0 3px 0 solid transparent; */
+    position: relative;
     outline-offset: -2px;
     outline: 2px solid gray;
 }
@@ -120,7 +131,6 @@ div {
 }
 
 .column {
-    min-height: 50px;
     display:inline-block;
     vertical-align: top;
 }

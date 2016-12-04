@@ -21,20 +21,43 @@ var Canvas = (function($container) {
     };
 
     this.display = function() {
+        this.$container.find(".content").empty();
+
         var $canvas = $("<div class='canvas'></div>");
-        this.$container.append($canvas);
+        this.$container.find(".content").append($canvas);
 
         $.each(this.rows, function(index, row) {
             row.display($canvas);
         });
 
-        var $edit = $("<div class='edit-bar'>Edit Canvas</div>");
-        $canvas.append($edit);
+        var $editBar = $("<div class='edit-bar'></div>");
+        $canvas.append($editBar);
 
-        $edit.click(function() {
+        $editBar.click(function() {
             var $canvas = self.editorDisplay(1);
             Dialog.insert($canvas);
             Dialog.open();
+        });
+
+        var $canvasText = $("<span>Canvas:</span>");
+        $editBar.append($canvasText);
+
+        var $editDialog = $("<span class='edit-option'>Edit</span>");
+        $editBar.append($editDialog);
+
+        $editDialog.click(function() {
+            var $canvas = self.editorDisplay(1);
+            Dialog.insert($canvas);
+            Dialog.open();
+        });
+
+        var $addRow = $("<span class='edit-option'>Add Row</span>");
+        $editBar.append($addRow);
+
+        $addRow.click(function(e) {
+            e.stopPropagation();
+            self.addRow();
+            self.display();
         });
     };
 
