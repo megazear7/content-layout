@@ -24,6 +24,18 @@ div {
     cursor: pointer;
 }
 
+.exit {
+    position: absolute;
+    z-index: 100;
+    right: 5px;
+    bottom: 5px;
+    padding: 5px;
+    background: #676767;
+    color: #d4d4d4;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
 .preview .edit-bar {
     display:none;
 }

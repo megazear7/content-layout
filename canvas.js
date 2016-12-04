@@ -1,6 +1,6 @@
 var Canvas = (function($container) {
 
-    // The Canvas can only have rows as children.
+    var self = this;
     this.rows = [];
     this.$container = $container;
 
@@ -33,22 +33,20 @@ var Canvas = (function($container) {
         $edit.click(function() {
             var $editor = $(".editor");
             $editor.addClass("show");
-            self.displayDepth(1, $editor);
+            self.displayEditor(1, $editor);
         });
     };
 
-    this.displayDepth = function(depth, $editor) {
+    this.displayEditor = function(depth, $editor) {
         var $canvas = $("<div class='canvas'></div>");
         $editor.append($canvas);
 
         if (depth > 0) {
             $.each(this.rows, function(index, row) {
-                row.displayDepth(depth-1, $canvas);
+                row.displayEditor(depth-1, $canvas);
             });
         }
     };
-
-    var self = this;
 
     this.$container.find(".mode").click(function(e) {
         if (self.$container.hasClass("preview")) {

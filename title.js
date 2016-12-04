@@ -20,7 +20,7 @@ var Title = (function(column, title) {
         });
     };
 
-    this.displayDepth = function($column) {
+    this.displayEditor = function($column) {
         var $title = $("<div class='text'>"+this.title+"</div>");
         $column.append($title);
     };
