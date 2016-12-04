@@ -85,6 +85,11 @@ div {
     width: 200px;
 }
 
+.dialog-input-large {
+    font-size: 14px;
+    width: 300px;
+}
+
 .editor {
     display: none;
     z-index: 101;

@@ -123,6 +123,25 @@ var Column = (function(parentRow, width) {
                 Canvas.display();
             });
         } else {
+            var $addContent = $("<span class='edit-option'>Add Text</span>");
+            $editBar.append($addContent);
+
+            $addContent.click(function(e) {
+                e.stopPropagation();
+                var $container = $("<div></div>");
+                var $label = $("<div class='dialog-label'>Enter text to be displayed.</div>");
+                var $input = $("<input class='dialog-input dialog-input-large'></input>");
+                $container.append($label);
+                $container.append($input);
+                Dialog.insert($container);
+                Dialog.open();
+
+                Dialog.close(function() {
+                    self.addText($input.val());
+                    Canvas.display();
+                });
+            });
+
             var $addRow = $("<span class='edit-option'>Add Row</span>");
             $editBar.append($addRow);
 
